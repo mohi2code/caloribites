@@ -1,6 +1,7 @@
 # Caloribites 🍪
 
-This is react app is a daily calories intake calculator for athletes
+This is react app is a daily calories intake calculator for athletes\
+[Live Preview](https://optimistic-ramanujan-ced7b3.netlify.app/)
 
 ## to run locally
 
