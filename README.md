@@ -15,3 +15,5 @@ fork the project then:
 ![screenshot2](./stock/screenshot2.png)
 ![screenshot2](./stock/screenshot3.png)
 
+**NOTE: all the logos, UI/UX designs are made by me**
+
