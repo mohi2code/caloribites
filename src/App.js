@@ -1,14 +1,18 @@
+import Input from './components/Input'
+import Select from './components/Select'
+import Button from './components/Button'
+
 import './styles/App.scss'
+import './styles/components.scss'
 
 export default function App() {
     return (
-        <div>
-            <h1>Mohi2code</h1>
-            <p>Once there was a poor man he had  no money it was winter time</p>
-            <input type="text" placeholder="Enter your name"/>
-            <input type="button" value="Calcualte" />
-            <button>Calcualte</button>
-            <a href="#">Just a link</a>
+        <div id="main-container">
+            <nav>
+                <img src="/images/favicon.svg" alt="logo"/>
+            </nav>
+
+            
         </div>
     )
 }
