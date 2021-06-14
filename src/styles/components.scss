@@ -44,7 +44,8 @@
         border-radius: 0;
         font-weight: 800;
 
-        transition: .2s background, .2s color;
+        transition: background .1s;
+        transition: color .3s;
 
         &:first-child {
             border-left: 2px solid $primary-color;
@@ -75,6 +76,18 @@
     padding: 1.2rem 2.4rem;
     background-color: $primary-color;
     color: white;
+    border: 0;
+    outline: 0;
+    border-radius: 2px;
+    cursor: pointer;
+
+    @include box-shadow
+}
+
+.btn-link {
+    padding: 1.2rem 2.4rem;
+    background-color: transparent;
+    color: $primary-color;
     border: 0;
     outline: 0;
     border-radius: 2px;

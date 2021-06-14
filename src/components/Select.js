@@ -5,7 +5,8 @@ export default function Select({ children, onChange }) {
     const [value, setValue] = useState(children ? children[0]: "")
 
     useEffect(() => {
-        onChange(value)
+        if (onChange)
+            onChange(value)
     }, [value])
 
     return (
