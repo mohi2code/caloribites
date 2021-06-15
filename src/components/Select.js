@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react"
 
-export default function Select({ children, onChange }) {
+export default function Select({ children, onChange, vvalue}) {
 
     const [value, setValue] = useState(children ? children[0]: "")
+
+    useEffect(() => {
+        setValue(vvalue)
+    }, [vvalue])
 
     useEffect(() => {
         if (onChange)
