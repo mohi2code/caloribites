@@ -108,6 +108,17 @@ export default function App() {
         setTotal(0)
     }
 
+    function activityLevelDescription() {
+        const description = {
+            low: "Little to no exercise, someone who is sitting most of the day",
+            medium: "Moderate exercise, someone who is active",
+            high: "someone who is highly active, exercises 4 to 5 times a week",
+            "very high": "someone who is super active, spends most of the day walking"
+        }
+
+        return description[activity]
+    }
+
     return (
         <div id="main-container">
             <nav>
@@ -162,6 +173,10 @@ export default function App() {
                         </div>
                         <div className="form-section">
                             <h2>Activity Level</h2>
+                            <p className="activity-level-description">
+                                <strong>{activity}:   </strong>
+                                {activityLevelDescription()}
+                            </p>
                             <Select vvalue={activity} onChange={value => setActivity(value)}>
                                 {["low", "medium", "high", "very high"]}
                             </Select>
