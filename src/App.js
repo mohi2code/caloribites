@@ -52,46 +52,46 @@ export default function App() {
     }
 
     function activityLevel() {
-        if (activity == "low")
+        if (activity === "low")
             return 14
-        else if (activity == "medium")
+        else if (activity === "medium")
             return 15
-        else if (activity == "high")
+        else if (activity === "high")
             return 16
-        else if (activity == "very high")
+        else if (activity === "very high")
             return 17
         else 
             return 14
     }
 
     function goalToProtein(){
-        if (goal == 'lose')
+        if (goal === 'lose')
             return 1.1
-        else if (goal == 'maintain')
+        else if (goal === 'maintain')
             return 1.25
-        else if (goal == 'gain')
+        else if (goal === 'gain')
             return 1.4
         else 
             return 1.25
     }
 
     function goalToFats(){
-        if (goal == 'lose')
+        if (goal === 'lose')
             return 0.3
-        else if (goal == 'maintain')
+        else if (goal === 'maintain')
             return 0.4
-        else if (goal == 'gain')
+        else if (goal === 'gain')
             return 0.5
         else 
             return 0.4
     }
 
     function goalToCalories() {
-        if (goal == 'lose')
+        if (goal === 'lose')
             return -500
-        else if (goal == 'maintain')
+        else if (goal === 'maintain')
             return 0
-        else if (goal == 'gain')
+        else if (goal === 'gain')
             return 500
         else 
             return 0
@@ -133,17 +133,30 @@ export default function App() {
             >
                 <div>
                     <div className="showcase">
-                        <img alt="logo" src="/images/logo-dark-transparent.png"/>
-                        <p><small>Calculate your daily macros and caloric needs based on your weight, activity level and goal</small></p>
+                        <motion.img 
+                            initial={{ y: 100, opacity: 0 }}
+                            variants={{ hide: { y: 0, opacity: 1 } }}
+                            transition={{ stiffness: 1000 }}
+                            alt="logo" src="/images/logo-dark-transparent.png"
+                        />
+                        <motion.p
+                            initial={{ y: 100, opacity: 0 }}
+                            variants={{ hide: { y: 0, opacity: 1 } }}
+                            transition={{ stiffness: 1000 }}
+                        ><small>Calculate your daily macros and caloric needs based on your weight, activity level and goal</small></motion.p>
                     </div>
                 </div>
 
                 <div>
-                    <form>
+                    <motion.form
+                        initial={{ y: 100, opacity: 0 }}
+                        variants={{ hide: { y: 0, opacity: 1 }, show: { y: 0, opacity: 1 } }}
+                        transition={{ stiffness: 1000 }}
+                    >
                         <div className="form-section">
                             <h2>Body Parameters</h2>
                             <div className="text-fields">
-                                <Input type="number" placeholder="Weight" tag="KG" value={weight} onChange={e => setWeight(e.target.value)}/>
+                                <Input type="number" placeholder="Weight" tag="lb" value={weight} onChange={e => setWeight(e.target.value)}/>
                                 <Input type="number" placeholder="Bodyfat" tag="%" value={bf} onChange={e => setBf(e.target.value)}/>
                             </div>
                         </div>
@@ -163,7 +176,7 @@ export default function App() {
                             <Button type="link" onClick={clear}>Clear</Button>
                             <Button onClick={calculate}>Calculate</Button>
                         </div>
-                    </form>
+                    </motion.form>
                 </div>
 
                 <div>
