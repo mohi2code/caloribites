@@ -19,6 +19,4 @@ fork the project then:
 ## screenshots
 
 ![screenshot1](./stock/screenshot1.png)
-\
-\
 ![screenshot2](./stock/screenshot2.png)
