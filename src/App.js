@@ -11,6 +11,7 @@ import Goal from './components/Goal'
 import Pagination from "./components/Pagination";
 
 import './styles/App.scss'
+import './styles/components.scss'
 
 export default function App(){
 

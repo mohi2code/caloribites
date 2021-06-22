@@ -1,1 +1,20 @@
 @import "./variables";
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    width: 65px;
+    margin: 0 auto;
+    padding: 2.25rem 0;
+}
+
+.pagination>.pagination-dot {
+    width: 15px;
+    height: 15px;
+    background: #e2e2e2;
+    border-radius: 50%;
+}
+
+.pagination-selected {
+    background: $primary-color !important;
+}
