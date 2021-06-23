@@ -38,7 +38,7 @@ export default function App(){
                 </Router>
             </main>
             <footer>
-                <input type="button" value="Continue"/>
+                <input className="btn" type="button" value="Continue"/>
             </footer>
         </div>
     )
@@ -51,24 +51,22 @@ function InputRouter({ page, setPage }) {
     return (
         <div className="input-container">
             <Pagination page={page} />
-            <form>
-                <Router>
-                    <Switch>
-                        <Route path={`${url}/body-parameters`}>
-                            <BodyParameters setPage={setPage} />
-                        </Route>
-                        <Route path={`${url}/activity-level`}>
-                            <ActivityLevel setPage={setPage} />
-                        </Route>
-                        <Route path={`${url}/goal`}>
-                            <Goal setPage={setPage} />
-                        </Route>
-                        <Route path="/">
-                            <BodyParameters setPage={setPage} />
-                        </Route>
-                    </Switch>
-                </Router>
-            </form>
+            <Router>
+                <Switch>
+                    <Route path={`${url}/body-parameters`}>
+                        <BodyParameters setPage={setPage} />
+                    </Route>
+                    <Route path={`${url}/activity-level`}>
+                        <ActivityLevel setPage={setPage} />
+                    </Route>
+                    <Route path={`${url}/goal`}>
+                        <Goal setPage={setPage} />
+                    </Route>
+                    <Route path="/">
+                        <BodyParameters setPage={setPage} />
+                    </Route>
+                </Switch>
+            </Router>
         </div>
     )
 }

@@ -36,7 +36,34 @@ main>.input-container {
     flex-direction: column;
 }
 
+.input-container>form {
+    flex: 1;
+}
+
+form>.form-header {
+    padding-bottom: 2.25rem;
+
+    p {
+        width: 80%;
+        text-align: left;
+    }
+}
+
+form>.input-group {
+    display: flex;
+    flex-direction: column;
+
+    .input-with-tag {
+        padding-bottom: 1.75rem;
+    }
+}
+
 #app>footer {
     background: #fff;
     padding: .75rem 1rem;
+    display: flex;
+    flex-direction: column;
+
+    -webkit-box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.01);
+    box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.01);
 }
