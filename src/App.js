@@ -9,6 +9,7 @@ import {
 import BodyParameters from './components/BodyParameters'
 import ActivityLevel from './components/ActivityLevel'
 import Goal from './components/Goal'
+import Results from "./components/Results";
 import Pagination from "./components/Pagination";
 import { PrimaryButton, GrayButton } from './components/Buttons'
 
@@ -55,6 +56,13 @@ export default function App(){
                         onClick={() => history.push('/results')}
                     />
                 </div>
+            )
+        else if(page == 3)
+            return (
+                <GrayButton 
+                    value="Cleaer"
+                    onClick={() => history.push('/input/body-parameters')}
+                />
             )
     }
 
@@ -108,13 +116,4 @@ function InputRouter({ page, setPage }) {
     )
 }
 
-function Results({ page, setPage }) {
 
-    useEffect(() => setPage(3), [setPage])
-
-    return (
-        <div className="results-container">
-            <h1>Results</h1>
-        </div>
-    )
-}
