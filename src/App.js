@@ -10,6 +10,7 @@ import BodyParameters from './components/BodyParameters'
 import ActivityLevel from './components/ActivityLevel'
 import Goal from './components/Goal'
 import Pagination from "./components/Pagination";
+import { PrimaryButton, GrayButton } from './components/Buttons'
 
 import './styles/App.scss'
 import './styles/components.scss'
@@ -20,6 +21,42 @@ export default function App(){
 
     const history = useHistory()
     const [page, setPage] = useState(0)
+
+    function footerButtonFactory() {
+        if (page === 0)
+            return (
+                <PrimaryButton 
+                    value="Continue" 
+                    onClick={() => history.push('/input/activity-level')}
+                />
+            )
+        else if(page == 1)
+            return (
+                <div className="two-buttons">
+                    <GrayButton 
+                        value="Back"
+                        onClick={() => history.push('/input/body-parameters')}
+                    />
+                    <PrimaryButton 
+                        value="Next"
+                        onClick={() => history.push('/input/goal')}
+                    />
+                </div>
+            )
+        else if(page == 2)
+            return (
+                <div className="two-buttons">
+                    <GrayButton 
+                        value="Back"
+                        onClick={() => history.push('/input/activity-level')}
+                    />
+                    <PrimaryButton 
+                        value="Results"
+                        onClick={() => history.push('/results')}
+                    />
+                </div>
+            )
+    }
 
     return (
         <div id="app">
@@ -40,13 +77,7 @@ export default function App(){
                 </Switch>
             </main>
             <footer>
-                <motion.input 
-                    whileTap={{ scale: 0.95 }}
-                    className="btn" 
-                    type="button" 
-                    value="Continue"
-                    onClick={() => history.push('/input/activity-level')}
-                />
+                { footerButtonFactory() }
             </footer>
         </div>
     )

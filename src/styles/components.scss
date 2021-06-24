@@ -79,6 +79,13 @@
     border: 1px solid $primary-color;
     border-radius: 8px;
     outline: none;
+    text-align: center;
 
     -webkit-appearance: none;
+}
+
+.btn-gray {
+    background: $gray-light;
+    color: #333;
+    border: 1px solid $gray-light
 }
