@@ -3,7 +3,8 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    useRouteMatch
+    useRouteMatch,
+    useHistory
 } from "react-router-dom";
 import BodyParameters from './components/BodyParameters'
 import ActivityLevel from './components/ActivityLevel'
@@ -13,8 +14,11 @@ import Pagination from "./components/Pagination";
 import './styles/App.scss'
 import './styles/components.scss'
 
+import { motion } from "framer-motion";
+
 export default function App(){
 
+    const history = useHistory()
     const [page, setPage] = useState(0)
 
     return (
@@ -23,22 +27,26 @@ export default function App(){
                 <img alt="logo" src="/images/favicon.svg"/>
             </nav>
             <main>
-                <Router>
-                    <Switch>
-                        <Route path="/input">
-                            <InputRouter page={page} setPage={setPage} />
-                        </Route>
-                        <Route path="/results">
-                            <Results page={page} setPage={setPage} />
-                        </Route>
-                        <Route path="/">
-                            <InputRouter page={page} setPage={setPage} />
-                        </Route>
-                    </Switch>
-                </Router>
+                <Switch>
+                    <Route path="/input">
+                        <InputRouter page={page} setPage={setPage} />
+                    </Route>
+                    <Route path="/results">
+                        <Results page={page} setPage={setPage} />
+                    </Route>
+                    <Route path="/">
+                        <InputRouter page={page} setPage={setPage} />
+                    </Route>
+                </Switch>
             </main>
             <footer>
-                <input className="btn" type="button" value="Continue"/>
+                <motion.input 
+                    whileTap={{ scale: 0.95 }}
+                    className="btn" 
+                    type="button" 
+                    value="Continue"
+                    onClick={() => history.push('/input/activity-level')}
+                />
             </footer>
         </div>
     )
@@ -51,22 +59,20 @@ function InputRouter({ page, setPage }) {
     return (
         <div className="input-container">
             <Pagination page={page} />
-            <Router>
-                <Switch>
-                    <Route path={`${url}/body-parameters`}>
-                        <BodyParameters setPage={setPage} />
-                    </Route>
-                    <Route path={`${url}/activity-level`}>
-                        <ActivityLevel setPage={setPage} />
-                    </Route>
-                    <Route path={`${url}/goal`}>
-                        <Goal setPage={setPage} />
-                    </Route>
-                    <Route path="/">
-                        <BodyParameters setPage={setPage} />
-                    </Route>
-                </Switch>
-            </Router>
+            <Switch>
+                <Route path={`${url}/body-parameters`}>
+                    <BodyParameters setPage={setPage} />
+                </Route>
+                <Route path={`${url}/activity-level`}>
+                    <ActivityLevel setPage={setPage} />
+                </Route>
+                <Route path={`${url}/goal`}>
+                    <Goal setPage={setPage} />
+                </Route>
+                <Route path="/">
+                    <BodyParameters setPage={setPage} />
+                </Route>
+            </Switch>
         </div>
     )
 }
