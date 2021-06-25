@@ -1,11 +1,19 @@
 import { useEffect } from 'react'
+import { motion } from 'framer-motion'
 
 export default function Results({ page, setPage }) {
 
     useEffect(() => setPage(3), [setPage])
 
     return (
-        <div className="results-container">
+        <motion.div 
+
+            initial={{ x:100, opacity: 0 }} 
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ y:80, opacity: 0 }} 
+            transition={{ stiffness: 1000, duration: 0.2 }}
+            className="results-container"
+        >
             <h3>Your Results</h3>
             <div className="results-header">
                 <h1>1890 kcal</h1>
@@ -28,6 +36,6 @@ export default function Results({ page, setPage }) {
                     </li>
                 </ul>
             </div>
-        </div>
+        </motion.div>
     )
 }

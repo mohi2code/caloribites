@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import SelectCards from "./SelectCards"
+import { AnimatedForm } from "./Animated"
 
 const values = [
     { title: 'Lose Weight' },
@@ -12,7 +13,7 @@ export default function Goal({ setPage }) {
     useEffect(() => setPage(2), [setPage])
 
     return (
-        <form>
+        <AnimatedForm>
             <div className="form-header">
                 <h1>Goal</h1>
                 <p>what are you trying to accomplish</p>
@@ -24,6 +25,6 @@ export default function Goal({ setPage }) {
                     onChange={selected => selected}
                 />
             </div>
-        </form>
+        </AnimatedForm>
     )
 }

@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import SelectCards from "./SelectCards"
+import { AnimatedForm } from "./Animated"
 
 const values = [
     {
@@ -25,7 +26,7 @@ export default function ActivityLevel({ setPage }) {
     useEffect(() => setPage(1), [setPage])
 
     return (
-        <form>
+        <AnimatedForm>
             <div className="form-header">
                 <h1>Activity Level</h1>
                 <p>how active are you</p>
@@ -37,6 +38,6 @@ export default function ActivityLevel({ setPage }) {
                     onChange={selected => selected}
                 />
             </div>
-        </form>
+        </AnimatedForm>
     )
 }

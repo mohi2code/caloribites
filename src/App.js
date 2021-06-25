@@ -4,7 +4,8 @@ import {
     Switch,
     Route,
     useRouteMatch,
-    useHistory
+    useHistory,
+    useLocation
 } from "react-router-dom";
 import BodyParameters from './components/BodyParameters'
 import ActivityLevel from './components/ActivityLevel'
@@ -16,11 +17,13 @@ import { PrimaryButton, GrayButton } from './components/Buttons'
 import './styles/App.scss'
 import './styles/components.scss'
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function App(){
 
     const history = useHistory()
+    const location = useLocation()
+
     const [page, setPage] = useState(0)
 
     function footerButtonFactory() {
@@ -72,17 +75,19 @@ export default function App(){
                 <img alt="logo" src="/images/favicon.svg"/>
             </nav>
             <main>
-                <Switch>
-                    <Route path="/input">
-                        <InputRouter page={page} setPage={setPage} />
-                    </Route>
-                    <Route path="/results">
-                        <Results page={page} setPage={setPage} />
-                    </Route>
-                    <Route path="/">
-                        <InputRouter page={page} setPage={setPage} />
-                    </Route>
-                </Switch>
+                <AnimatePresence exitBeforeEnter>
+                    <Switch location={location} key={location.pathname}>
+                        <Route path="/input">
+                            <InputRouter page={page} setPage={setPage} />
+                        </Route>
+                        <Route path="/results">
+                            <Results page={page} setPage={setPage} />
+                        </Route>
+                        <Route path="/">
+                            <InputRouter page={page} setPage={setPage} />
+                        </Route>
+                    </Switch>
+                </AnimatePresence>
             </main>
             <footer>
                 { footerButtonFactory() }
