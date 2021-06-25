@@ -7,6 +7,7 @@ import {
     useHistory,
     useLocation
 } from "react-router-dom";
+import Loading from "./components/Loading";
 import BodyParameters from './components/BodyParameters'
 import ActivityLevel from './components/ActivityLevel'
 import Goal from './components/Goal'
@@ -84,7 +85,7 @@ export default function App(){
                             <Results page={page} setPage={setPage} />
                         </Route>
                         <Route path="/">
-                            <InputRouter page={page} setPage={setPage} />
+                            <Loading />
                         </Route>
                     </Switch>
                 </AnimatePresence>
