@@ -33,6 +33,40 @@ export default function App(){
     const [activityLevel, setActivityLevel] = useState(-1)
     const [goal, setGoal] = useState(-1)
 
+    return (
+        <div id="app">
+            <nav>
+                <img alt="logo" src="/images/favicon.svg"/>
+            </nav>
+            <main>
+                <AnimatePresence exitBeforeEnter>
+                    <Switch location={location} key={location.pathname}>
+                        <Route path="/input">
+                            <InputRouter 
+                                page={page} setPage={setPage}
+                                weight={weight} setWeight={setWeight} 
+                                bodyfat={bodyfat} setBodyFat={setBodyFat} 
+                                activityLevel={activityLevel} setActivityLevel={setActivityLevel}
+                                goal={goal} setGoal={setGoal}
+                             />
+                        </Route>
+                        <Route path="/results">
+                            <Results page={page} setPage={setPage} />
+                        </Route>
+                        <Route path="/">
+                            <Loading />
+                        </Route>
+                    </Switch>
+                </AnimatePresence>
+            </main>
+            <footer>
+                <div className="buttons-container container">
+                    { footerButtonFactory() }
+                </div>
+            </footer>
+        </div>
+    )
+
     function footerButtonFactory() {
         if (page === 0)
             return (
@@ -71,44 +105,10 @@ export default function App(){
             return (
                 <GrayButton 
                     value="Clear"
-                    onClick={() => history.push('/input/body-parameters')}
+                    onClick={clear}
                 />
             )
     }
-
-    return (
-        <div id="app">
-            <nav>
-                <img alt="logo" src="/images/favicon.svg"/>
-            </nav>
-            <main>
-                <AnimatePresence exitBeforeEnter>
-                    <Switch location={location} key={location.pathname}>
-                        <Route path="/input">
-                            <InputRouter 
-                                page={page} setPage={setPage}
-                                weight={weight} setWeight={setWeight} 
-                                bodyfat={bodyfat} setBodyFat={setBodyFat} 
-                                activityLevel={activityLevel} setActivityLevel={setActivityLevel}
-                                goal={goal} setGoal={setGoal}
-                             />
-                        </Route>
-                        <Route path="/results">
-                            <Results page={page} setPage={setPage} />
-                        </Route>
-                        <Route path="/">
-                            <Loading />
-                        </Route>
-                    </Switch>
-                </AnimatePresence>
-            </main>
-            <footer>
-                <div className="buttons-container container">
-                    { footerButtonFactory() }
-                </div>
-            </footer>
-        </div>
-    )
 
     function showResults(e){
         const calc = Calculator({ 
@@ -146,6 +146,14 @@ export default function App(){
         else 
             return 1
         }
+    }
+
+    function clear() {
+        setWeight(0)
+        setBodyFat(0)
+        setActivityLevel(-1)
+        setGoal(-1)
+        history.push('/input/body-parameters')
     }
 }
 
