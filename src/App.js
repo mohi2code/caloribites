@@ -35,7 +35,7 @@ export default function App(){
                     onClick={() => history.push('/input/activity-level')}
                 />
             )
-        else if(page == 1)
+        else if(page === 1)
             return (
                 <div className="two-buttons">
                     <GrayButton 
@@ -48,7 +48,7 @@ export default function App(){
                     />
                 </div>
             )
-        else if(page == 2)
+        else if(page === 2)
             return (
                 <div className="two-buttons">
                     <GrayButton 
@@ -61,7 +61,7 @@ export default function App(){
                     />
                 </div>
             )
-        else if(page == 3)
+        else if(page === 3)
             return (
                 <GrayButton 
                     value="Cleaer"
@@ -91,7 +91,9 @@ export default function App(){
                 </AnimatePresence>
             </main>
             <footer>
-                { footerButtonFactory() }
+                <div className="buttons-container container">
+                    { footerButtonFactory() }
+                </div>
             </footer>
         </div>
     )
@@ -102,7 +104,7 @@ function InputRouter({ page, setPage }) {
     const { url } = useRouteMatch()
 
     return (
-        <div className="input-container">
+        <div className="input-container container">
             <Pagination page={page} />
             <Switch>
                 <Route path={`${url}/body-parameters`}>

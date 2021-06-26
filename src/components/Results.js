@@ -12,7 +12,7 @@ export default function Results({ page, setPage }) {
             animate={{ x: 0, opacity: 1 }}
             exit={{ y:80, opacity: 0 }} 
             transition={{ stiffness: 1000, duration: 0.2 }}
-            className="results-container"
+            className="results-container container"
         >
             <h3>Your Results</h3>
             <div className="results-header">
