@@ -21,7 +21,7 @@ const values = [
     },
 ]
 
-export default function ActivityLevel({ setPage }) {
+export default function ActivityLevel({ setPage, activityLevel, setActivityLevel }) {
 
     useEffect(() => setPage(1), [setPage])
 
@@ -35,7 +35,8 @@ export default function ActivityLevel({ setPage }) {
             <div className="input-group">
                 <SelectCards
                     values={values}
-                    onChange={selected => selected}
+                    value={activityLevel}
+                    onChange={selected => setActivityLevel(selected)}
                 />
             </div>
         </AnimatedForm>

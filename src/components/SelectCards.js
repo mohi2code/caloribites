@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 
 export default function SelectCards({ value, onChange, values=[] }) {
 
-    const [selected, setSelected] = useState(value ? value: -1)
+    const [selected, setSelected] = useState(value || value === 0 ? value: -1)
 
     useEffect(() => onChange(selected), [selected])
 

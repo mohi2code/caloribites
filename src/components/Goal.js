@@ -8,7 +8,7 @@ const values = [
     { title: 'Gain Weight' },
 ]
 
-export default function Goal({ setPage }) {
+export default function Goal({ setPage, goal, setGoal }) {
 
     useEffect(() => setPage(2), [setPage])
 
@@ -22,7 +22,8 @@ export default function Goal({ setPage }) {
             <div className="input-group">
                 <SelectCards
                     values={values}
-                    onChange={selected => selected}
+                    value={goal}
+                    onChange={selected => setGoal(selected)}
                 />
             </div>
         </AnimatedForm>

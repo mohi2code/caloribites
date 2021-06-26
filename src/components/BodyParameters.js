@@ -3,7 +3,7 @@ import InputWithTag from './InputWithTag'
 
 import { AnimatedForm } from "./Animated" 
 
-export default function BodyParameters({ setPage }) {
+export default function BodyParameters({ setPage, weight, setWeight, bodyfat, setBodyFat }) {
 
     useEffect(() => setPage(0), [setPage])
 
@@ -15,8 +15,14 @@ export default function BodyParameters({ setPage }) {
             </div>
 
             <div className="input-group">
-                <InputWithTag type="number" placeholder="Weight" tag="KG"/>
-                <InputWithTag type="number" placeholder="Bodyfat" tag="%"/>
+                <InputWithTag 
+                    type="number" placeholder="Weight" tag="KG"
+                    value={weight} onChange={e => setWeight(e.target.value)}
+                />
+                <InputWithTag 
+                    type="number" placeholder="Bodyfat" tag="%"
+                    value={bodyfat} onChange={e => setBodyFat(e.target.value)}
+                />
             </div>
         </AnimatedForm>
     )

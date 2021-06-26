@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
-    BrowserRouter as Router,
     Switch,
     Route,
     useRouteMatch,
@@ -15,10 +14,12 @@ import Results from "./components/Results";
 import Pagination from "./components/Pagination";
 import { PrimaryButton, GrayButton } from './components/Buttons'
 
+import Calculator from './Calculator'
+
 import './styles/App.scss'
 import './styles/components.scss'
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 export default function App(){
 
@@ -26,6 +27,11 @@ export default function App(){
     const location = useLocation()
 
     const [page, setPage] = useState(0)
+
+    const [weight, setWeight] = useState(0)
+    const [bodyfat, setBodyFat] = useState(0)
+    const [activityLevel, setActivityLevel] = useState(-1)
+    const [goal, setGoal] = useState(-1)
 
     function footerButtonFactory() {
         if (page === 0)
@@ -57,14 +63,14 @@ export default function App(){
                     />
                     <PrimaryButton 
                         value="Results"
-                        onClick={() => history.push('/results')}
+                        onClick={showResults}
                     />
                 </div>
             )
         else if(page === 3)
             return (
                 <GrayButton 
-                    value="Cleaer"
+                    value="Clear"
                     onClick={() => history.push('/input/body-parameters')}
                 />
             )
@@ -79,7 +85,13 @@ export default function App(){
                 <AnimatePresence exitBeforeEnter>
                     <Switch location={location} key={location.pathname}>
                         <Route path="/input">
-                            <InputRouter page={page} setPage={setPage} />
+                            <InputRouter 
+                                page={page} setPage={setPage}
+                                weight={weight} setWeight={setWeight} 
+                                bodyfat={bodyfat} setBodyFat={setBodyFat} 
+                                activityLevel={activityLevel} setActivityLevel={setActivityLevel}
+                                goal={goal} setGoal={setGoal}
+                             />
                         </Route>
                         <Route path="/results">
                             <Results page={page} setPage={setPage} />
@@ -97,9 +109,53 @@ export default function App(){
             </footer>
         </div>
     )
+
+    function showResults(e){
+        const calc = Calculator({ 
+            weight, bodyfat, 
+            activityLevel: activityLevelToIndex(), 
+            goal: goalToIndex() 
+        })
+        history.push('/results', {
+            protein: calc.getProteinGrams(),
+            fats: calc.getFatsGrams(),
+            carbs: calc.getCarbsGrams(),
+            total: calc.getTotalCalories()
+        })
+
+        function activityLevelToIndex() {
+            if (activityLevel === 0)
+            return 13
+        else if (activityLevel === 1)
+            return 14.5
+        else if (activityLevel === 2)
+            return 15.5
+        else if (activityLevel === 3)
+            return 17
+        else 
+            return 14.5
+        }
+
+        function goalToIndex() {
+            if (goal === 0)
+            return 0
+        else if (goal === 1)
+            return 1
+        else if (goal === 2)
+            return 2
+        else 
+            return 1
+        }
+    }
 }
 
-function InputRouter({ page, setPage }) {
+function InputRouter({ 
+    page, setPage, 
+    weight, setWeight, 
+    bodyfat, setBodyFat, 
+    activityLevel, setActivityLevel, 
+    goal, setGoal 
+}) {
 
     const { url } = useRouteMatch()
 
@@ -108,16 +164,31 @@ function InputRouter({ page, setPage }) {
             <Pagination page={page} />
             <Switch>
                 <Route path={`${url}/body-parameters`}>
-                    <BodyParameters setPage={setPage} />
+                    <BodyParameters 
+                        setPage={setPage} 
+                        weight={weight} setWeight={setWeight} 
+                        bodyfat={bodyfat} setBodyFat={setBodyFat} 
+                    />
                 </Route>
                 <Route path={`${url}/activity-level`}>
-                    <ActivityLevel setPage={setPage} />
+                    <ActivityLevel 
+                        setPage={setPage}
+                        activityLevel={activityLevel}
+                        setActivityLevel={setActivityLevel}
+                     />
                 </Route>
                 <Route path={`${url}/goal`}>
-                    <Goal setPage={setPage} />
+                    <Goal 
+                        setPage={setPage} 
+                        goal={goal} setGoal={setGoal}
+                    />
                 </Route>
                 <Route path="/">
-                    <BodyParameters setPage={setPage} />
+                    <BodyParameters 
+                         setPage={setPage} 
+                         weight={weight} setWeight={setWeight} 
+                         bodyfat={bodyfat} setBodyFat={setBodyFat} 
+                    />
                 </Route>
             </Switch>
         </div>
