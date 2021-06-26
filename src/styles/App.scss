@@ -1,0 +1,156 @@
+@import "./variables";
+
+#app {
+    height: 100vh;
+    background: $background-color;
+    display: flex;
+    flex-direction: column;
+}
+
+#app>nav {
+    background: #fff;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: .5rem 1rem;
+
+    -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.01);
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.01);
+}
+
+nav>img {
+    height: 100%;
+}
+
+#app>main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 2rem 1rem;
+}
+
+main>.input-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-container>form {
+    flex: 1;
+}
+
+form>.form-header {
+    padding-bottom: 2.25rem;
+
+    p {
+        width: 80%;
+        text-align: left;
+    }
+}
+
+form>.input-group {
+    display: flex;
+    flex-direction: column;
+
+    .input-with-tag {
+        padding-bottom: 1.75rem;
+    }
+}
+
+main>.results-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding-top: 1rem;
+
+    h1,
+    h3,
+    h4,
+    p {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.results-container>h3 {
+    font-weight: 600;
+    color: $primary-color;
+}
+
+.results-container>.results-header {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+        font-size: 3em;
+    }
+
+    p {
+        width: 80%;
+    }
+}
+
+.results-container>.results-table {
+    display: flex;
+    flex-direction: column;
+
+    h4 {
+        border-bottom: 8px solid $primary-color;
+        padding-bottom: 8px;
+    }
+
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0;
+        color: $gray-darker;
+
+        li {
+            display: flex;
+            border-bottom: 1px solid $gray-darker;
+            padding-bottom: .5rem;
+
+            .macro {
+                flex: 1;
+            }
+        }
+    }
+}
+
+#app>footer {
+    background: #fff;
+    padding: .75rem 1rem;
+    display: flex;
+    flex-direction: column;
+
+    -webkit-box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.01);
+    box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.01);
+
+    .buttons-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .two-buttons {
+        flex: 1;
+        display: flex;
+        gap: 1rem;
+
+        .btn {
+            flex: 1;
+        }
+    }
+}
+
+
+/************* Helpers ********************/
+@media screen and (min-width: 540px) {
+    .container {
+        width: 540px;
+        margin: 0 auto;
+    }
+}

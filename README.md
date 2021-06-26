@@ -3,6 +3,16 @@
 This react app is a daily calories intake calculator for athletes\
 [Live Preview](https://optimistic-ramanujan-ced7b3.netlify.app/)
 
+## new features in v3
+* Completely new design 
+* Mobile optimized layout
+* Custom components redesigned
+* Components animation
+* Screen transition animation
+* Screen loading 
+
+You can check the adobe xd design file in the "stock" folder
+
 ## to run locally
 
 fork the project then:
@@ -12,9 +22,8 @@ fork the project then:
 
 ## screenshots
 
+![screenshot3](./stock/screenshot3.png)
+![screenshot4](./stock/screenshot4.png)
 ![screenshot1](./stock/screenshot1.png)
 ![screenshot2](./stock/screenshot2.png)
-![screenshot2](./stock/screenshot3.png)
-
-**NOTE: all the logos, UI/UX designs are made by me**
-
+![screenshot5](./stock/screenshot5.png)
