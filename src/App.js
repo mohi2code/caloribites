@@ -120,7 +120,8 @@ export default function App(){
             protein: calc.getProteinGrams(),
             fats: calc.getFatsGrams(),
             carbs: calc.getCarbsGrams(),
-            total: calc.getTotalCalories()
+            total: calc.getTotalCalories(),
+            goal
         })
 
         function activityLevelToIndex() {

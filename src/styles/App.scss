@@ -121,6 +121,30 @@ main>.results-container {
     }
 }
 
+.results-container>.suggestions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .header {
+        display: flex;
+    }
+
+    .header>h4:nth-child(2) {
+        margin-left: auto;
+        color: $primary-color;
+        cursor: pointer;
+    }
+
+    .videos {
+        display: flex;
+        gap: 1rem;
+        padding: 1rem 0;
+        overflow-x: scroll;
+    }
+
+}
+
 #app>footer {
     background: #fff;
     padding: .75rem 1rem;
