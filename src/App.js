@@ -11,6 +11,7 @@ import BodyParameters from './components/BodyParameters'
 import ActivityLevel from './components/ActivityLevel'
 import Goal from './components/Goal'
 import Results from "./components/Results";
+import AllVideos from "./components/AllVideos";
 import Pagination from "./components/Pagination";
 import { PrimaryButton, GrayButton } from './components/Buttons'
 
@@ -52,6 +53,9 @@ export default function App(){
                         </Route>
                         <Route path="/results">
                             <Results page={page} setPage={setPage} />
+                        </Route>
+                        <Route path="/videos">
+                            <AllVideos page={page} setPage={setPage} />
                         </Route>
                         <Route path="/">
                             <Loading />
@@ -108,6 +112,13 @@ export default function App(){
                     onClick={clear}
                 />
             )
+        else if(page === 4)
+            return (
+                <GrayButton 
+                    value="Clear"
+                    onClick={clear}
+                />
+            )
     }
 
     function showResults(e){
@@ -120,7 +131,8 @@ export default function App(){
             protein: calc.getProteinGrams(),
             fats: calc.getFatsGrams(),
             carbs: calc.getCarbsGrams(),
-            total: calc.getTotalCalories()
+            total: calc.getTotalCalories(),
+            goal
         })
 
         function activityLevelToIndex() {

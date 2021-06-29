@@ -10,6 +10,7 @@ This react app is a daily calories intake calculator for athletes\
 * Components animation
 * Screen transition animation
 * Screen loading 
+* Youtube video suggestions
 
 You can check the adobe xd design file in the "stock" folder
 
