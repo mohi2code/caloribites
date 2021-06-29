@@ -1,12 +1,13 @@
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { useLocation } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 
 import VideoThumbnail from './VideoThumbnail'
 import { data, tag } from '../VideosData'
 
 export default function Results({ page, setPage }) {
 
+    const history = useHistory()
     const { state: {
         protein, 
         carbs,
@@ -51,10 +52,10 @@ export default function Results({ page, setPage }) {
             <div className="suggestions-container">
                 <div className="header">
                     <h4>Suggested</h4>
-                    <h4 className="view-all">view all &gt;</h4>
+                    <h4 className="view-all" onClick={e => history.push("/videos", { protein, carbs, fats, total, goal })}>view all &gt;</h4>
                 </div>
                 <div className="videos">
-                    { data.map(video => (
+                    { data.map((video, i) => (
                         (
                             goal === 0 && video.tag === tag.loseWeight && (
                                 <VideoThumbnail 
@@ -62,6 +63,7 @@ export default function Results({ page, setPage }) {
                                     thumbnail={video.thumbnail}
                                     views={video.views}
                                     link={video.link}
+                                    key={i}
                                 />
                             )
                         ) ||
@@ -72,6 +74,7 @@ export default function Results({ page, setPage }) {
                                     thumbnail={video.thumbnail}
                                     views={video.views}
                                     link={video.link}
+                                    key={i}
                                 />
                             )
                         ) ||
@@ -82,6 +85,7 @@ export default function Results({ page, setPage }) {
                                     thumbnail={video.thumbnail}
                                     views={video.views}
                                     link={video.link}
+                                    key={i}
                                 />
                             )
                         )
