@@ -12,7 +12,6 @@ export default function Navbar() {
             <ul className="nav">
                 <NavItem history={history} link="/home">Home</NavItem>
                 <NavItem history={history} link="/loading">Calculator</NavItem>
-                <NavItem history={history} link="/#">About</NavItem>
             </ul>
             <Toggle toggle={toggle} setToggle={setToggle} />
             <NavMobile history={history} toggle={toggle} />
@@ -42,7 +41,6 @@ const NavMobile = ({ history, toggle }) => (
     >
         <NavItem history={history} link="/home">Home</NavItem>
         <NavItem history={history} link="/loading">Calculator</NavItem>
-        <NavItem history={history} link="/#">About</NavItem>
     </motion.ul>
 )
 
