@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import App from './App';
+import Home from './Home';
 import reportWebVitals from './reportWebVitals';
 
 import './index.scss'
@@ -9,7 +10,14 @@ import './index.scss'
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <Switch>
+        <Route path="/home">
+          <Home />
+        </Route>
+        <Route path="/">
+          <App />
+        </Route>
+      </Switch>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

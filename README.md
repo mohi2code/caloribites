@@ -11,6 +11,7 @@ This react app is a daily calories intake calculator for athletes\
 * Screen transition animation
 * Screen loading 
 * Youtube video suggestions
+* Landing page
 
 You can check the adobe xd design file in the "stock" folder
 
@@ -23,8 +24,8 @@ fork the project then:
 
 ## screenshots
 
+![screenshot6](./stock/screenshot6.png)
 ![screenshot3](./stock/screenshot3.png)
 ![screenshot4](./stock/screenshot4.png)
 ![screenshot1](./stock/screenshot1.png)
-![screenshot2](./stock/screenshot2.png)
 ![screenshot5](./stock/screenshot5.png)
