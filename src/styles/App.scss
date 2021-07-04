@@ -191,11 +191,151 @@ main>.all-videos {
     }
 }
 
+/************* Landing Page ***************/
+#landing>.hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background-color: $background-color;
+
+    nav {
+        position: absolute;
+        display: flex;
+        height: 120px;
+        width: 100vw;
+    }
+
+    .content {
+        flex: 1;
+        display: flex;
+
+        .left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: .75rem;
+            padding: 0.5rem 1rem;
+        }
+
+        .left>.display {
+            display: flex;
+            align-items: center;
+            gap: .65rem;
+            color: $text-black;
+
+            h1 {
+                font-weight: 900;
+                font-size: 5em;
+                margin: 0;
+            }
+
+            img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        .left>p {
+            font-weight: 500;
+            font-size: 1.5em;
+            text-align: left;
+            margin: 0;
+            max-width: 420px;
+            color: $text-dark;
+        }
+
+        .left>.btn {
+            max-width: 220px;
+            border-radius: 40px;
+            padding: 1rem;
+        }
+
+        .right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+
+            div {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                background-color: #F8C291;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+/*********** Mobile Optimization *********/
+@media screen and (max-width: 760px) {
+    #landing>.hero>.content {
+        flex-direction: column;
+
+        .left {
+            flex: 1;
+
+            .display>h1 {
+                font-size: 3em;
+            }
+
+            p {
+                font-size: 1em;
+                max-width: 300px;
+            }
+        }
+
+        .right {
+            flex: 1;
+        }
+
+    }
+}
+
 
 /************* Helpers ********************/
 @media screen and (min-width: 540px) {
     .container {
         width: 540px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .responsive-container {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .responsive-container {
+        width: 720px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .responsive-container {
+        width: 950px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .responsive-container {
+        width: 1100px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .responsive-container {
+        width: 1320px;
         margin: 0 auto;
     }
 }

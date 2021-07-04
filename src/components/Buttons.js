@@ -20,7 +20,18 @@ const GrayButton = ({ value,  onClick}) => (
     />
 )
 
+const WhiteButton = ({ value,  onClick}) => (
+    <motion.input 
+        whileTap={{ scale: 0.95 }}
+        className="btn btn-white" 
+        type="button" 
+        value={value}
+        onClick={onClick}
+    />
+)
+
 export {
     PrimaryButton,
-    GrayButton
+    GrayButton,
+    WhiteButton
 }
