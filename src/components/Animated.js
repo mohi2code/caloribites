@@ -12,13 +12,14 @@ const variants = {
     }
 }
 
-const AnimatedForm = ({ children }) => (
+const AnimatedForm = ({ children, ...props }) => (
     <motion.form
         variants={variants}
         initial="initial"
         animate="animate"
         transition={{ stiffness: 1000, duration: 0.2 }}
         exit="exit"
+        {...props}
     >
         { children }
     </motion.form>

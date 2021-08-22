@@ -57,7 +57,7 @@ export default function Results({ page, setPage }) {
                 <div className="videos">
                     { data.map((video, i) => (
                         (
-                            goal === 0 && video.tag === tag.loseWeight && (
+                            goal === 1 && video.tag === tag.loseWeight && (
                                 <VideoThumbnail 
                                     title={video.title}
                                     thumbnail={video.thumbnail}
@@ -68,7 +68,7 @@ export default function Results({ page, setPage }) {
                             )
                         ) ||
                         (
-                            goal === 2 && video.tag === tag.gainMuscle && (
+                            goal === 3 && video.tag === tag.gainMuscle && (
                                 <VideoThumbnail 
                                     title={video.title}
                                     thumbnail={video.thumbnail}
@@ -79,7 +79,7 @@ export default function Results({ page, setPage }) {
                             )
                         ) ||
                         (
-                            goal === 1 && video.tag === tag.general && (
+                            goal === 2 && video.tag === tag.general && (
                                 <VideoThumbnail 
                                     title={video.title}
                                     thumbnail={video.thumbnail}
