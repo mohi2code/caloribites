@@ -1,7 +1,7 @@
 import { useHistory } from 'react-router-dom'
 import { PrimaryButton, GrayButton } from '../components/Buttons'
 
-export default function FooterButton({ page, showResults, clear }) {
+export default function FooterButton({ page, showResults, clear, data }) {
 
     const history = useHistory()
 
@@ -9,7 +9,11 @@ export default function FooterButton({ page, showResults, clear }) {
         return (
             <PrimaryButton 
                 value="Continue" 
-                onClick={() => history.push('/input/activity-level')}
+                onClick={() => {
+                    if (!data.weight || !data.bodyfat)
+                        return
+                    history.push('/input/activity-level')
+                }}
             />
         )
     else if(page === 1)
@@ -21,7 +25,11 @@ export default function FooterButton({ page, showResults, clear }) {
                 />
                 <PrimaryButton 
                     value="Next"
-                    onClick={() => history.push('/input/goal')}
+                    onClick={() => {
+                        if (data.activityLevel == -1 || !data.activityLevel)
+                            return
+                        history.push('/input/goal')
+                    }}
                 />
             </div>
         )
@@ -34,7 +42,11 @@ export default function FooterButton({ page, showResults, clear }) {
                 />
                 <PrimaryButton 
                     value="Results"
-                    onClick={showResults}
+                    onClick={() => {
+                        if (data.goal == -1 || !data.goal)
+                            return
+                        showResults()
+                    }}
                 />
             </div>
         )

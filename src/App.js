@@ -61,7 +61,14 @@ export default function App(){
             </main>
             <footer>
                 <div className="buttons-container container">
-                    <FooterButton page={page} showResults={showResults} clear={clear} />
+                    <FooterButton 
+                        page={page}
+                        showResults={showResults}
+                        clear={clear}
+                        data={{
+                            weight, bodyfat, activityLevel, goal
+                        }}    
+                    />
                 </div>
             </footer>
         </div>
@@ -82,24 +89,24 @@ export default function App(){
         })
 
         function activityLevelToIndex() {
-            if (activityLevel === 0)
+            if (activityLevel === 1)
             return 13
-        else if (activityLevel === 1)
-            return 14.5
         else if (activityLevel === 2)
-            return 15.5
+            return 14.5
         else if (activityLevel === 3)
+            return 15.5
+        else if (activityLevel === 4)
             return 17
         else 
             return 14.5
         }
 
         function goalToIndex() {
-            if (goal === 0)
+            if (goal === 1)
             return 0
-        else if (goal === 1)
-            return 1
         else if (goal === 2)
+            return 1
+        else if (goal === 3)
             return 2
         else 
             return 1
