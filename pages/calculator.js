@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Calculator.module.css'
 import Button from '../components/Button'
+import { Card, Header, Info } from '../components/Card'
 import { Input, InputTag, Tag } from '../components/Input'
 
 export default function Calculator() {
@@ -19,6 +20,7 @@ export default function Calculator() {
                 <Button type="white">White</Button>
                 <Button type="gray">Gray</Button>
             </div>
+
             <div style={{width: '600px'}}>
                 <Input type="number"/>
                 <Input type="text"/>
@@ -26,6 +28,21 @@ export default function Calculator() {
                     <Input type="number"/>
                     <Tag>KG</Tag>
                 </InputTag>
+            </div>
+
+            <div style={{width: '600px', paddingLeft: '2rem'}}>
+                <Card>
+                    <Header>Low</Header>
+                    <Info>Sitting all day, barely moving</Info>
+                </Card>
+                <Card selected={true}>
+                    <Header>Medium</Header>
+                    <Info>Sitting all day, barely moving</Info>
+                </Card>
+                <Card>
+                    <Header>Hight</Header>
+                    <Info>Sitting all day, barely moving</Info>
+                </Card>
             </div>
 
         </div>
