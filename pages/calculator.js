@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Calculator.module.css'
 import Button from '../components/Button'
 import { Card, Header, Info } from '../components/Card'
-import { Input, InputTag, Tag } from '../components/Input'
+import BodyParameters from '../sections/BodyParameter'
 
 export default function Calculator() {
     return (
@@ -23,10 +23,13 @@ export default function Calculator() {
                     />
             </nav>
 
-            <main></main>
+            <main>
+                <BodyParameters />
+            </main>
 
             <footer>
                 <div className={styles['buttons-container']}>
+                    {/* <Button type="gray">Back</Button> */}
                     <Button>Continue</Button>
                 </div>
             </footer>

@@ -2,8 +2,9 @@ import { forwardRef } from 'react'
 import classNames from 'classnames'
 import styles from './Input.module.css'
 
-const Input = forwardRef(({ size="md", children, className, ...props }, ref) => (
+const Input = forwardRef(({ size="md", children, className, type="text", ...props }, ref) => (
     <input 
+        type={type}
         ref={ref}
         className={classNames(styles['input'], className)} 
         {...props} 
